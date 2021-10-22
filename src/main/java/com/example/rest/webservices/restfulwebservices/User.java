@@ -2,7 +2,9 @@ package com.example.rest.webservices.restfulwebservices;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class User {
@@ -12,6 +14,17 @@ public class User {
     @Size(min=2,message = "User name should have min 2 length")
     private String name;
     private Integer age;
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
+
     public User(){}
     public User(Integer id, String name, Integer age) {
         super();
