@@ -29,6 +29,7 @@ class RestfulWebServicesApplicationTests {
     public void retrieveAllUsersTest() {
 
         //when(userRepository.findAll()).thenReturn(Stream.of(new User(1, "Par", 24), new User(2, "Fab", 56)).collect(Collectors.toList()));
+        //List<User> userList= Arrays.asList(new User(1,"siva",4));
         List<User> userList= Arrays.asList(new User(1,"siva",4));
         when(userRepository.findAll()).thenReturn(userList);
         assertEquals(1, userService.retrieveAllUsers().size());
